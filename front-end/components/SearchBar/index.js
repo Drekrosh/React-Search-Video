@@ -15,8 +15,15 @@ class SearchBar extends Component {
                    className="form-control"
                    placeholder="Введите название видео."
                    aria-describedby="sizing-addon1"
+                   value={ this.state.term }
+                   onChange={ e => this._onInputChange(e.target.value) }
             />
         </div>
+    }
+
+    _onInputChange = (term) => {
+        this.setState({ term });
+        this.props.onSearchTerm(term);
     }
 
 }
